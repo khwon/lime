@@ -6,7 +6,7 @@ prompt_lime_git() {
   local working_tree="${vcs_info_msg_1_#x}"
   [[ -n $working_tree ]] || return
 
-  echo "%F{109}${vcs_info_msg_0_}$(prompt_lime_git_dirty)%f "
+  echo "%F{79}${vcs_info_msg_0_}$(prompt_lime_git_dirty)%f "
 }
 
 prompt_lime_git_dirty() {
@@ -45,6 +45,7 @@ prompt_lime_setup() {
 
   setopt prompt_subst
   PROMPT='%F{109}%n%f %F{143}%~%f $(prompt_lime_git)$(prompt_lime_symbol) '
+  PROMPT='%F{118}%n@%m%f:%B%F{12}%(4~/...%3~/%~)%f%b $(prompt_lime_git)$(prompt_lime_symbol) '
 }
 
 prompt_lime_setup
