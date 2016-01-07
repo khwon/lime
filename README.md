@@ -73,6 +73,10 @@ with color names. The default value is `143`.
 Color for the current git status, between `0` and `255`. Also you can set this
 with colors names. The default value is `109`.
 
+### `LIME_USER_DIR_SEPARATOR`
+
+Character between user part and directory part of prompt. Default is ' '.
+
 ## License
 
 Copyright (c) 2014-2016 Chayoung You. See [LICENSE.txt](LICENSE.txt) for

@@ -22,10 +22,12 @@ git_compare_version() {
 
 prompt_lime_user() {
   local prompt_color="${LIME_USER_COLOR:-109}"
+  local user_dir_separator="${LIME_USER_DIR_SEPARATOR:- }"
+
   if (( ${LIME_SHOW_HOSTNAME:-0} )) && [[ -n "$SSH_CONNECTION" ]]; then
-    echo "%F{${prompt_color}}%n@%m%f"
+    echo "%F{${prompt_color}}%n@%m%f${user_dir_separator}"
   else
-    echo "%F{${prompt_color}}%n%f"
+    echo "%F{${prompt_color}}%n%f${user_dir_separator}"
   fi
 }
 
@@ -95,7 +97,7 @@ prompt_lime_setup() {
   prompt_lime_git_post_1_7_2=$(git_compare_version '1.7.2')
 
   setopt prompt_subst
-  PROMPT='$(prompt_lime_user) $(prompt_lime_dir) $(prompt_lime_git)$(prompt_lime_symbol) '
+  PROMPT='$(prompt_lime_user)$(prompt_lime_dir) $(prompt_lime_git)$(prompt_lime_symbol) '
 }
 
 prompt_lime_setup
