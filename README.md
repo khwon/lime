@@ -43,6 +43,36 @@ Then select the theme in `.zshrc`:
 ZSH_THEME="lime"
 ```
 
+## Options
+
+### `LIME_SHOW_HOSTNAME`
+
+Set `LIME_SHOW_HOSTNAME=1` to see the hostname when you're connecting via SSH.
+The default value is `0`.
+
+### `LIME_DIR_DISPLAY_COMPONENTS`
+
+The number of trailing components of the current working directory. If you set
+`LIME_DIR_DISPLAY_COMPONENTS=3`, it'll display `...bar/baz/qux` when you're on
+`~/foo/bar/baz/qux`. The default value is `0`, which shows the whole path.
+
+### `LIME_USER_COLOR`
+
+Color for user and hostname, between `0` and `255`. Also you can set this with
+color names. For the full list of the colors, see [this
+gist](https://gist.github.com/yous/c303055cf65a99d65488). The default value is
+`109`.
+
+### `LIME_DIR_COLOR`
+
+Color for the current directory, between `0` and `255`. Also you can set this
+with color names. The default value is `143`.
+
+### `LIME_GIT_COLOR`
+
+Color for the current git status, between `0` and `255`. Also you can set this
+with colors names. The default value is `109`.
+
 ## License
 
 Copyright (c) 2014-2016 Chayoung You. See [LICENSE.txt](LICENSE.txt) for
