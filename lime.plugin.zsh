@@ -42,15 +42,22 @@ prompt_lime_dir() {
 }
 
 prompt_lime_git() {
-  # Get VCS information
-  vcs_info
+  if [[ "$PWD" =~ ^/goo ]]; then
+    local prompt_color="${LIME_GIT_COLOR:-109}"
+    if typeset -f prompt_lime_custom_rev > /dev/null; then
+      echo "%F{${prompt_color}}$(prompt_lime_custom_rev)%f "
+    fi
+  else
+    # Get VCS information
+    vcs_info
 
-  # Store working_tree without the 'x' prefix
-  local working_tree="${vcs_info_msg_1_#x}"
-  [[ -n $working_tree ]] || return
+    # Store working_tree without the 'x' prefix
+    local working_tree="${vcs_info_msg_1_#x}"
+    [[ -n $working_tree ]] || return
 
-  local prompt_color="${LIME_GIT_COLOR:-109}"
-  echo "%F{${prompt_color}}${vcs_info_msg_0_}$(prompt_lime_git_dirty)%f "
+    local prompt_color="${LIME_GIT_COLOR:-109}"
+    echo "%F{${prompt_color}}${vcs_info_msg_0_}$(prompt_lime_git_dirty)%f "
+  fi
 }
 
 prompt_lime_git_dirty() {
